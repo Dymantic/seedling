@@ -9,21 +9,52 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'superadmin',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+
+    protected $casts = ['superadmin' => 'boolean'];
+
+    public static function register($user_attributes)
+    {
+        $user_attributes['password'] = bcrypt($user_attributes['password']);
+        return static::create($user_attributes);
+    }
+
+    public function resetPassword($password)
+    {
+        $this->password = bcrypt($password);
+        $this->save();
+    }
+
+    public function toJsonableArray()
+    {
+        return [
+            'id'         => $this->id,
+            'name'       => $this->name,
+            'email'      => $this->email,
+            'superadmin' => $this->superadmin
+        ];
+    }
+
+    public function promoteToSuperAdmin()
+    {
+        $this->superadmin = true;
+        return $this->save();
+    }
+
+    public function demoteToRegularUser()
+    {
+        $this->superadmin = false;
+        return $this->save();
+    }
 }

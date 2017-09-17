@@ -55,6 +55,20 @@ return [
             'visibility' => 'public',
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root' => public_path('media'),
+            'url' => env('APP_URL').'/media',
+            'visibility' => 'public',
+        ],
+
+        'test_media' => [
+            'driver' => 'local',
+            'root' => public_path('test_media'),
+            'url' => env('APP_URL').'/test_media',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_KEY'),
