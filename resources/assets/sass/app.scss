@@ -5,5 +5,16 @@
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~tachyons-sass/tachyons";
+
+@import "admin/base";
+@import "misc/spinner";
+@import "misc/container";
+@import "utilities/colours";
+@import "utilities/typography";
+@import "utilities/hovers";
+
+@import "admin/components/buttons";
+@import "admin/components/cards";
+
+

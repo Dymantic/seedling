@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 14 17.63">
+    <path fill="none"
+          stroke="#4d4d4e"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2px"
+          d="M11,16.63a2,2,0,0,0,2-2v-1l-4.06-2,1.06-2v-4a3,3,0,0,0-6,0v4l1.06,2L1,13.63v1a2,2,0,0,0,2,2Z"/>
+    <polyline fill="none"
+              stroke="#4d4d4e"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2px"
+              points="10.98 1 10.98 3.95 3.02 3.95 3.02 1"/>
+    <polyline fill="none"
+              stroke="#4d4d4e"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2px"
+              points="3.02 1 4.34 2.42 5.67 1 6.99 2.42 8.32 1 9.65 2.42 10.98 1"/>
+</svg>

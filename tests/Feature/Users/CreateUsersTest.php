@@ -37,7 +37,30 @@ class CreateUsersTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
+     */
+    public function a_non_superadmin_is_still_a_valid_user()
+    {
+        $this->disableExceptionHandling();
+        $response = $this->asLoggedInUser()->json('POST', '/admin/users', [
+            'name'                  => 'Test Name',
+            'email'                 => 'test@example.com',
+            'password'              => 'password',
+            'password_confirmation' => 'password',
+            'superadmin'            => '',
+        ]);
+
+        $response->assertStatus(200);
+
+        $this->assertDatabaseHas('users', [
+            'name'       => 'Test Name',
+            'email'      => 'test@example.com',
+            'superadmin' => false
+        ]);
+    }
+
+    /**
+     * @test
      */
     public function a_user_is_created_with_a_hashed_password()
     {
@@ -112,7 +135,7 @@ class CreateUsersTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function the_users_email_must_be_a_valid_email_address()
     {
@@ -130,7 +153,7 @@ class CreateUsersTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function the_new_users_password_must_be_at_least_8_characters_long()
     {
@@ -148,7 +171,7 @@ class CreateUsersTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function the_users_password_must_have_a_matching_confirmation()
     {
@@ -166,7 +189,7 @@ class CreateUsersTest extends TestCase
     }
 
     /**
-     *@test
+     * @test
      */
     public function a_user_can_only_be_created_by_another_logged_in_user()
     {

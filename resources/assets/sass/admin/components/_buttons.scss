@@ -1,0 +1,38 @@
+.btn {
+  min-width: 8em;
+  height: 40px;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 .5em;
+  border: 1px solid;
+  color: $admin-primary;
+  background-color: $white;
+  padding: 0 15px;
+
+  &:hover {
+    background-color: $admin-primary;
+    border-color: $admin-primary;
+    color: $white;
+  }
+}
+
+.btn.btn-grey {
+  color: $mid_grey;
+
+  &:hover {
+    border-color: $mid_grey;
+    background-color: $mid_grey;
+    color: $admin-dark;
+  }
+}
+
+.btn.btn-red {
+  color: $warning;
+
+  &:hover {
+    border-color: $warning;
+    background-color: $warning;
+    color: $white;
+  }
+}

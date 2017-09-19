@@ -8,14 +8,25 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::all()->map->toJsonableArray();
+        return view('admin.users.index', ['users' => $users]);
+    }
+
     public function store()
     {
-        request()->validate([
+        $user_data = collect(request()->validate([
             'name'     => 'required|max:255',
             'email'    => 'required|email',
-            'password' => 'min:8|confirmed'
-        ]);
-        User::register(request()->only('name', 'email', 'password', 'superadmin'));
+            'password' => 'min:8|confirmed',
+            'superadmin' => ''
+        ]))->reject(function($value) {
+            return is_null($value);
+        })->all();
+
+        User::register($user_data);
     }
 
 
