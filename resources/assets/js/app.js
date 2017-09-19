@@ -27,6 +27,7 @@ Vue.component('user-form', require('./components/UserForm.vue'));
 Vue.component('user-list', require('./components/UserList.vue'));
 Vue.component('user-item', require('./components/User.vue'));
 Vue.component('toggle-switch', require('./components/Toggle.vue'));
+Vue.component('image-upload', require('./components/Singleupload.vue'));
 
 window.eventHub = new Vue();
 
