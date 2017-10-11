@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::directive('activeclass', function ($path_fragment) {
         return "<?php echo starts_with(Request::path(), $path_fragment) ? 'active' : ''; ?>";
+        });
     }
 
     /**
